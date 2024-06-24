@@ -59,11 +59,11 @@ try: # 해당 검색내용이 있는지 여부 확인
 
     # 질의응답 출력
     output = retrieval_qa({
-        "question": "'{}'에 대해 언급된 문맥을 종합하여 인물'{}'의 치료방식, 인물'{}'에 대한 환자의 평가, 인물'{}'에 대한 추가 정보를 1) 2) 3) 번호를 매기면서 구체적으로 요약해줘.".format(query, query, query, query),
+        "question": "'{}'에 대해 언급된 내용을 종합하여 1)'{}'의 친절도에 대한 점수를 100점만점 기준으로 제시하고, 2)'{}'의 치료 성향 및 어떤 수술을 주로 진행하는에 대한 정보가 있다면 요약해주고, 3)'{}'의 수술 예후에 대한 정보가 있다면 요약해줘. 이에 대해서 1) 2) 3) 번호를 매개면서 정리해줘.".format(query, query, query, query),
         "chat_history": []
     })
 
     print(f"답변: {output['answer']}")
 except:
-    print("답변: openai api 서비스를 이용할 수 없거나, 문서에서 {}에 관한 언급 없음".format(query))
+    print("답변: chromadb까지 모든 라이브러리(import 라이브러리)를 pip install로 설치해야 하거나, openai api 서비스를 이용할 수 없거나(온라인 연결 및 api_key 사용가능한지 확인), 문서에서 {}에 관한 언급 없음".format(query))
 os.remove("temp.txt")
